@@ -8,6 +8,10 @@ export class DbzService {
   
   private _personajes: Personaje[] = [
     {
+      nombre: "Willian",
+      poder: 10000
+    },
+    {
       nombre: "Goku",
       poder: 15000
     },
