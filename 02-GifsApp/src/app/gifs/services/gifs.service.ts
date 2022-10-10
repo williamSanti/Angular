@@ -13,8 +13,15 @@ export class GifsService {
     return [...this._historial];
   }
 
-  buscarGifs( query: string){
-    this._historial.unshift(query);
+  buscarGifs( query: string = ''){
+
+    query = query.trim().toLocaleLowerCase();
+
+    if(!this._historial.includes( query )){      
+      this._historial.splice(0,10);
+      this._historial.unshift(query);
+    }
+
     console.log(this._historial);
   }
 
