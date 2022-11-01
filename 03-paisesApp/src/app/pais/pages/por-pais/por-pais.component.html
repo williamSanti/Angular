@@ -13,8 +13,8 @@
     </div>
 </div>
 <br>
-<div class="alert alert-danger">
-    No se encontro nada con el término AAADSA
+<div *ngIf="hayError" class="alert alert-danger">
+    No se encontro nada con el término {{termino}}
 </div>
 
 <div class="row">
