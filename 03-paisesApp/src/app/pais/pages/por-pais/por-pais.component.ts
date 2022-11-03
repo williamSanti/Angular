@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Country } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
 @Component({ 
@@ -6,6 +7,8 @@ import { PaisService } from '../../services/pais.service';
   templateUrl: './por-pais.component.html'
 })
 export class PorPaisComponent {
+
+  paises: Country[] = [];
 
   hayError:boolean = false;
 
@@ -18,10 +21,12 @@ export class PorPaisComponent {
     console.log(this.termino);
 
     this.paisService.buscarPais( this.termino )
-      .subscribe( resp => {
-        console.log( resp )
+      .subscribe( paises => {
+        console.log( paises )
+        this.paises=paises;
       }, (err) => {
         this.hayError = true;
+        this.paises=[];
       });
   }
 }
